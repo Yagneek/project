@@ -15,6 +15,8 @@ u=np.array([0,0])
 F=-51
 O=np.array([0,0])
 l,m=LA.eig(V/-F)
+A = np.array([np.sqrt(34),0])
+B = np.array([0,np.sqrt(34)/3])
 y = np.zeros((2,len))
 a=1/l[0]**0.5
 b=1/l[1]**0.5
@@ -44,8 +46,6 @@ plt.plot(O[0], O[1], 'o')
 plt.text(O[0] * (1 - 0.1), O[1] * (1 + 0.1) , 'O')
 plt.plot(O[0], O[1], 'o')
 
-plt.text(O[0] * (1 - 0.1), O[1] * (1 + 0.1) , 'O')
-
 P1=np.array([(51/4)**0.5,(17/36)**0.5])
 m1=np.array([np.sqrt(3)/2,-1/2])
 
@@ -73,9 +73,13 @@ plt.plot(x_P1[0,:],x_P1[1,:],label='Random tangent 1', color='grey')
 plt.plot(x_P2[0,:],x_P2[1,:],label='Random tangent 2', color='grey')
 
 plt.plot(P[0], P[1], 'o')
-
 plt.text(P[0] * (1 - 0.1), P[1] * (1 + 0.1) , 'P')
 
+plt.text(A[0] * (1 - 0.1), A[1] * (1 + 0.1) , 'A')
+plt.plot(A[0], A[1], 'o')
+
+plt.text(B[0] * (1 - 0.1), B[1] * (1 + 0.1) , 'B')
+plt.plot(B[0], B[1], 'o')
 
 plt.axis('equal')
 
