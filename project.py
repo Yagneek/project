@@ -53,4 +53,7 @@ plt.xlabel('$x$');plt.ylabel('$y$')
 plt.legend(loc='best')
 
 plt.grid()
+
+plt.savefig('../ellipse.pdf')
+plt.savefig('../ellipse.eps')
 plt.show()
