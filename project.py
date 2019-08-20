@@ -38,13 +38,44 @@ for i in range(len):
     x_P[:,i]= temp1.T
     
 plt.plot(y[0,:],y[1,:],label='Ellipse at origin')
-plt.plot(x_P[0,:],x_P[1,:],label='Required Tangent')
+plt.plot(x_P[0,:],x_P[1,:],label='Required Tangent', color='red')
 plt.plot(O[0], O[1], 'o')
 
 plt.text(O[0] * (1 - 0.1), O[1] * (1 + 0.1) , 'O')
 plt.plot(O[0], O[1], 'o')
 
 plt.text(O[0] * (1 - 0.1), O[1] * (1 + 0.1) , 'O')
+
+P1=np.array([(51/4)**0.5,(17/36)**0.5])
+m1=np.array([np.sqrt(3)/2,-1/2])
+
+x_P1 = np.zeros((2,len))
+lam_11 = np.linspace(-5,5,len)
+
+for i in range(len):
+
+    temp11 = P1 + lam_11[i]*m1
+
+    x_P1[:,i]= temp11.T
+P2=np.array([(17/4)**0.5,(17/12)**0.5])
+m2=np.array([(3*np.sqrt(3))/(2*np.sqrt(7)),-1/(2*np.sqrt(7))])
+
+x_P2 = np.zeros((2,len))
+lam_22 = np.linspace(-5,7,len)
+
+for i in range(len):
+
+    temp22 = P2 + lam_22[i]*m2
+
+    x_P2[:,i]= temp22.T
+
+plt.plot(x_P1[0,:],x_P1[1,:],label='Random tangent 1', color='grey')
+plt.plot(x_P2[0,:],x_P2[1,:],label='Random tangent 2', color='grey')
+
+plt.plot(P[0], P[1], 'o')
+
+plt.text(P[0] * (1 - 0.1), P[1] * (1 + 0.1) , 'P')
+
 
 plt.axis('equal')
 
@@ -53,7 +84,4 @@ plt.xlabel('$x$');plt.ylabel('$y$')
 plt.legend(loc='best')
 
 plt.grid()
-
-plt.savefig('../ellipse.pdf')
-plt.savefig('../ellipse.eps')
 plt.show()
