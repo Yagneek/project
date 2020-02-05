@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from sklearn.metrics import mean_squared_error
 
-X, y, coefficients = make_regression(
+r_d, profit, coefficients = make_regression(
     n_samples=50,
     n_features=1,
     n_informative=1,
@@ -14,15 +14,18 @@ X, y, coefficients = make_regression(
 )
 
 alpha = 0
-n, m = X.shape
+n, m = r_d.shape
 I = np.identity(m)
 
-w = np.dot(np.dot(np.linalg.inv(np.dot(X.T, X) + alpha * I), X.T), y)
-ols_w = np.dot(np.dot(np.linalg.inv(np.dot(X.T, X)), X.T), y)
+w = np.dot(np.dot(np.linalg.inv(np.dot(r_d.T, r_d) + alpha * I), r_d.T), profit)
 
-plt.scatter(X, y)
-plt.plot(X, w*X, c='red')
+plt.scatter(r_d, profit)
+plt.plot(r_d, w*r_d, c='red')
 plt.show()
+
+
+
+
 
 
 
